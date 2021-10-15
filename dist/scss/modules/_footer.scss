@@ -1,0 +1,69 @@
+@use "../abstracts/vars" as v;
+@use "../abstracts/mixins" as m;
+.footer{
+    @include m.flexible(column, nowrap, center, center);
+    &__form{
+        @include m.flexible(column, nowrap, center, center);
+        padding:3rem;
+        background-color: v.$container-color;
+        min-width: 250px;
+        max-width: 720px;
+        box-shadow: 0 2px 4px rgba(3,74,40,.15); 
+        margin-bottom: 10rem ;
+        label{
+            align-self: flex-start;
+        }
+        input{
+            margin: 6px 0 16px 0;
+            border: 1px solid v.$text-color;
+        }
+        input[type=text],input[type=email],input[type=submit],textarea,select{
+            width: 100%;
+            padding: .7rem;
+            resize: vertical;
+            
+        }
+        input[type=submit]{
+            margin-top: 1rem;
+            background-color: v.$first-color;
+            color: v.$body-color;
+            font-weight: v.$font-sm-bold;
+        }
+        select{
+            margin: 0 0 16px 0;
+        }
+        textarea{
+            max-width: 100%;
+        }
+    }
+    &__title{
+        text-align: center;
+        font-weight: v.$font-sm-bold;
+        color: v.$first-color;
+        font-size: v.$h2-font-size;
+        padding: 6rem 0 4rem 0;
+    }
+    &__container{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        align-items: center;
+        justify-content: center;
+        row-gap: 2rem;
+        padding: 0 0 5rem 0;
+        &-info{
+            &-img{
+                width: 100%;
+                text-align: center;
+                font-size: 3rem;
+            }
+            h3{
+                text-align: center;
+                font-size:v.$smaller-font-size;
+            }
+        }
+    }
+    &__copy{
+        text-align: center;
+        margin: 2rem;
+    }
+}

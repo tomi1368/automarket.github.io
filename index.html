@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AutoMarket</title>
+    <link rel="icon" href="/dist/assets/icons8-ferrari-48.png">
+    <link rel="stylesheet" href="dist/css/main.css"/>
+    <script
+      src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
+      data-auto-a11y="true"
+    ></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  </head>
+  <body>
+    <header class="header">
+        <nav class="container nav-bar">
+          <a href="./index.html" class="nav-bar__logo">
+            <img src="./dist/assets/scuderia-ferrari-logo.svg" alt="" />
+          </a>
+          <ul class="nav-bar__list">
+              <li class="nav-bar__list__items active-link" data-pos="header">
+                <a class="nav-bar__list__items__link" href="#Home">Home</a>
+              </li>
+              <li class="nav-bar__list__items" data-pos="products">
+                <a class="nav-bar__list__items__link" href="#Products">Productos</a>
+              </li>
+              <li class="nav-bar__list__items" data-pos="contact">
+                <a class="nav-bar__list__items__link" href="#Contact">Contactanos</a>
+              </li>
+          </ul>
+          <div class="nav-bar__hambuger">
+              <div class="nav-bar__hambuger__line"></div>
+          </div>
+          </div>
+        </nav>
+    </header>
+    <main>
+      <section class="banner" id="Home">
+        <div class="banner__box">
+          <img
+            src="dist/assets/pexels-albin-berlin-919073.jpg"
+            alt=""
+            class="active-slide"
+          />
+      
+          <img src="dist/assets/pexels-garvin-st-villier-3874337.jpg" alt="" />
+      
+          <img src="dist/assets/pexels-rachel-claire-4577859.jpg" alt="" />
+        </div>
+        <ul class="banner__controls">
+          <li class="banner__controls-arrow left"></li>
+          <li class="banner__controls-arrow right"></li>
+        </ul>
+      </section>
+      
+      <section class="products container" id="Products">
+        <div class="products__title">
+          <span>Hasta 30%</span>
+          <h2>Nuevas Ofertas</h2>
+        </div>
+        <div class="cars__sale">
+          <div class="cars__sale-card">
+            <div class="cars__sale-card-off">20% OFF</div>
+            <img src="dist/assets/honda-civic-2021.jpg" alt="" />
+            <h3>Honda Civic</h3>
+            <span>2021</span>
+            <div>
+              <span>$1600</span>
+              <span class="cars__sale-card-minus">$2000</span>
+            </div>
+          </div>
+          <div class="cars__sale-card">
+            <div class="cars__sale-card-off">30% OFF</div>
+            <img src="dist/assets/golf-TSI-volkswagen-comfortline.jpg" alt="" />
+            <h3>Golf GT</h3>
+            <span>2020</span>
+            <div>
+              <span>$1050</span>
+              <span class="cars__sale-card-minus">$1500</span>
+            </div>
+          </div>
+          <div class="cars__sale-card">
+            <div class="cars__sale-card-off">25% OFF</div>
+            <img src="dist/assets/2015-Hyundai-Genesis-3-8L.jpg" alt="" />
+            <h3>Hyundai Genesis</h3>
+            <span> 2020</span>
+            <div>
+              <span>$1875</span>
+              <span class="cars__sale-card-minus">$2500</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+    </main>
+    <footer class="footer section bd-container" id="Contact">
+        <h2 class="footer__title">Contactanos</h3>
+        <form action="" class="footer__form">
+          <label for="nombre">Nombre y Apellido</label>
+          <input type="text" id="nombre" pattern="^[a-zA-az ,.'-]+$" title="Debe ingresar solo letras" name="nombre">
+          <label for="provincia">Provincia</label>
+          <select name="provincia" id="provincia">
+            <option value="">Elige una Provincia</option>
+            <option value="Buenos Aires">Buenos Aires</option>
+            <option value="Cordoba">Cordoba</option>
+            <option value="Salta">Salta</option>
+            <option value="Chaco">Chaco</option>
+            <option value="Corrientes">Corrientes</option>
+            <option value="Tucuman">Tucuman</option>
+            <option value="Santiago del Estero">Santiago del Estero</option>
+            <option value="Entre Rios">Entre Rios</option>
+            <option value="Santa Cruz">Santa Cruz</option>
+            <option value="Chubut">Chubut</option>
+            <option value="Tierra del Fuego">Tierra del Fuego</option>
+            <option value="La Rioja">La Rioja</option>
+            <option value="Mendoza">Mendoza</option>
+            <option value="Rio Negro">Rio Negro</option>
+            <option value="La Pampa">La Pampa</option>
+            <option value="San Luis">San Luis</option>
+            <option value="San Juan">San Juan</option>
+            <option value="Catamarca">Catamarca</option>
+            <option value="Jujuy">Jujuy</option>
+            <option value="Formosa">Formosa</option>
+            <option value="Misiones">Misiones</option>
+            <option value="Santa Fe">Santa Fe</option>
+            <option value="Neuquen">Neuquen</option>
+          </select>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$" title="No se puede enviar esto" placeholder="examples@gmail.com">
+          <label for="text">Escriba su Comentario</label>
+          <textarea id="text" data-pattern="^.{1,255}$" cols="50" rows="5" placeholder="Escribe tu comentario"></textarea>
+          <input type="submit" value="Enviar">
+        </form>
+        <div class="footer__container container">
+            <div class="footer__container-info">
+                <div class="footer__container-info-img">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3>San Martín 1171 Campana, Provincia de Buenos Aires</h3>
+            </div>
+            <div class="footer__container-info">
+                <div class="footer__container-info-img">
+                    <i class="fas fa-phone-square-alt"></i>
+                </div>
+                <h3>+54 011-231234</h3>
+            </div>
+            <div class="footer__container-info">
+                <div class="footer__container-info-img">
+                    <i class="far fa-envelope"></i>
+                </div>
+                <h3>automarket@gmail.com</h3>
+            </div>
+        </div>    
+        <p class="footer__copy">&#169; 2021 AutoMarket. All right reserved</p>
+    </footer>
+    <script src="./dist/js/app.js"></script>
+  </body>
+</html>

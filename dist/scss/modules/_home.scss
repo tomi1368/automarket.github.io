@@ -1,0 +1,127 @@
+@use "../abstracts/vars" as v;
+@use "../abstracts/mixins" as m;
+
+.banner{
+    position: relative;
+    width: 100%;
+    margin-top: 74px;
+    min-height: 100vh;
+    @media screen and (max-width: 1237px) {
+        margin-top: 0;
+      }
+    &__box{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .7s ease-in-out, visibility .7s ease-in-out;
+            &.active-slide{
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+    &__controls{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+        width: 80px;
+        @media screen and (max-width: 1000px) {
+            width: 30px;
+          }
+        &-arrow{
+            position: relative;
+            width: 80px;
+            height: 80px;
+            background-color:v.$body-color;
+            transition: background-color .5s ease-in-out;
+            @include m.flexible(row,nowrap,center,center);
+            cursor: pointer;
+            @media screen and (max-width: 1000px) {
+                width: 30px;
+                height: 30px;
+              }
+            &:hover{
+                background-color: v.$black-color;
+            }
+            &:hover::before{
+                border-color: #fff;
+            }
+            &::before{
+                content: " ";
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                border-left: 3px solid #111;
+                border-bottom: 3px solid #111;
+                transform: rotate(45deg);    
+                transition: border-color .5s ease-in-out;
+                @media screen and (max-width: 1000px) {
+                    width: 10px;
+                    height: 10px;
+                  }
+            }
+            &:nth-child(2)::before{
+                transform: rotate(225deg);
+            }
+        }
+    }
+}
+
+.products{
+    padding: 8rem 0;
+    &__title{
+        text-align: center;
+        margin: 0 0 2rem 0;
+        span{
+            color: v.$first-color;
+        }
+        h2{
+            font-size: v.$biggest-font-size;
+        }
+    }
+    .cars__sale{
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        &-card{
+            @include m.flexible(column,nowrap,center,center);
+            gap: .5rem;
+            position: relative;
+            padding: 1rem;
+            width: 100%;
+            border-radius: 20px;
+            background-color: v.$container-color;
+            box-shadow: 0 2px 4px rgba(3,74,40,.15);
+            overflow: hidden;
+            transition: transform .3s ease-in-out;
+            &:hover{
+                transform: translateY(-5px);
+            }
+            &-off{
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                font-size: v.$small-font-size;
+                border-radius: 1rem;
+                padding: .2rem;
+                background-color: v.$black-color;
+                color: v.$body-color;
+            }
+            &-minus{
+                text-decoration: line-through;
+                color: red;
+            }
+        }
+    }
+}

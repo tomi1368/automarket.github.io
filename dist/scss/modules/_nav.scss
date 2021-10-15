@@ -1,0 +1,145 @@
+@use "../abstracts/vars" as v;
+@use "../abstracts/mixins" as m;
+
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100%;
+  z-index: v.$fixed;
+  background-color: v.$body-color;
+  color: v.$body-color;
+  transition: box-shadow .6s ease-in-out, padding .3s ease-in-out;
+  &.active {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 0 0 10px 0;
+  }
+  .nav-bar {
+    height: 74px;
+    padding: 18px 0;
+    @include m.flexible(row, nowrap, space-between, center);
+    @media screen and (max-width: 1237px) {
+      @include m.flexible(row, nowrap, center, center);
+    }
+    &__logo{
+      width: 4rem;
+      height: 4rem;
+    }
+    &__list {
+      @include m.flexible(row, nowrap, center, center);
+      @media screen and (max-width: 1237px) {
+        position: fixed;
+        @include m.flexible(column, nowrap, space-evenly, center);
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: v.$black-color;
+        opacity: 0;
+        color: transparent;
+        visibility: hidden;
+        clip-path: circle(0% at 50% 50%);
+        transition: color 1.5s ease-in-out,
+          visibility 0.6s cubic-bezier(0.075, 0.82, 0.165, 1),
+          clip-path 0.6s cubic-bezier(0.075, 0.82, 0.165, 1),
+          opacity 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+        
+        &.activo {
+          visibility: visible;
+          opacity: 1;
+          color: v.$body-color;
+          z-index: v.$up;
+          clip-path: circle(100% at 50% 50%);
+        }
+      }
+      &__items {
+        margin: 0 2rem;
+        font-weight: v.$font-md;
+        transition: color 0.3s ease-in-out;
+        &__link{
+          color:v.$text-color;
+          cursor: pointer;
+          @media screen and (max-width: 1237px){
+            color: v.$body-color;
+          }
+        }
+        &.active-link{
+            color:v.$first-color;
+        }
+        &::after {
+          content: "";
+          width: 0;
+          height: 2px;
+          background: v.$black-color;
+          display: block;
+          margin: auto;
+          transition: width .5s ease-in-out;
+        }
+        &:hover::after {
+          width: 100%;
+        }
+        @media screen and (max-width: 1237px) {
+          &::after {
+            background: v.$body-color;
+          }
+        }
+      }
+    }
+    &__hambuger {
+        visibility: hidden;
+        position: fixed;
+        bottom: 3.125rem;
+        right: 2.1875rem;
+        height: 50px;
+        width: 50px;
+        background-color: v.$body-color;
+        @include m.flexible(row, nowrap, center, center);
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: v.$fixed;
+        @media screen and (max-width: 1237px) {
+          visibility: visible;
+          background-color: rgb(145, 143, 143);
+        }
+        //Media querie para spawnear el hambuger en la misma width que el fixed list
+        &__line {
+          position: absolute;
+          height: 2px;
+          width: 80%;
+          background-color: v.$black-color;
+          transition: transform 0.4s, opacity 0.4s;
+          &::after {
+            content: " ";
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            top: 8px;
+            background-color: v.$black-color;
+          }
+          &::before {
+            content: " ";
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            top: -8px;
+            background-color: v.$black-color;
+          }
+          &.open {
+            transform: rotate(720deg);
+            background: transparent;
+            &::before {
+              position: absolute;
+              transform: rotate(45deg) translate(6px, 5px);
+            }
+            &::after {
+              transform: rotate(-45deg) translate(5px, -9px);
+              position: absolute;
+              left: 3px;
+              top: 10px;
+            }
+          }
+        }
+      }
+  }
+}
