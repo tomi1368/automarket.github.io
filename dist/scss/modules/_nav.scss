@@ -97,10 +97,11 @@
         @include m.flexible(row, nowrap, center, center);
         border-radius: 50%;
         cursor: pointer;
+        border: 1px solid v.$black-color;
         z-index: v.$fixed;
         @media screen and (max-width: 1237px) {
           visibility: visible;
-          background-color: rgb(145, 143, 143);
+          background-color: v.$container-color;
         }
         //Media querie para spawnear el hambuger en la misma width que el fixed list
         &__line {

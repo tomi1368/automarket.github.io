@@ -167,12 +167,13 @@ body {
   align-content: auto;
   border-radius: 50%;
   cursor: pointer;
+  border: 1px solid #000000;
   z-index: 100;
 }
 @media screen and (max-width: 1237px) {
   .header .nav-bar__hambuger {
     visibility: visible;
-    background-color: #918f8f;
+    background-color: #FFFFFF;
   }
 }
 .header .nav-bar__hambuger__line {
@@ -244,12 +245,18 @@ body {
   width: 100%;
   padding: 0.7rem;
   resize: vertical;
+  max-height: 400px;
 }
 .footer__form input[type=submit] {
   margin-top: 1rem;
   background-color: #069C54;
   color: #FBFEFB;
   font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.5s ease-in-out;
+}
+.footer__form input[type=submit]:hover {
+  background-color: #048654;
 }
 .footer__form select {
   margin: 0 0 16px 0;
